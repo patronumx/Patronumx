@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Fill the viewport */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Galaxy Purple Gradient background with a deep space toning effect */
+body {
+  /* Fallback to a single dark color from the image */
+  background-color: #0d0c24; 
+  
+  /* Combined background-image:
+     1. The deep space effect (on top)
+     2. The galaxy gradient (underneath)
+  */
+  background-image: 
+    /* This gradient creates a deeper, more intense vignette */
+    radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.9) 100%),
+    /* The base galaxy color gradient */
+    linear-gradient(
+      to bottom right,
+      #0d0c24 0%,
+      #2a1a55 50%,
+      #1f134f 100%
+    );
+  
+  background-attachment: fixed; /* Ensures the gradient covers the whole page */
+  background-size: cover; /* Ensures the radial gradient covers the entire background */
+  background-position: center; /* Centers the radial gradient */
+  background-repeat: no-repeat; /* Prevents repetition of the gradients */
+  color: #fff;
+}
+
+/* Full-screen particle layer behind everything */
+#bgParticles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none; /* don’t block clicks on app UI */
+}
+
+/* App content above particles */
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+}
