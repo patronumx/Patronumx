@@ -10,7 +10,7 @@ import ContactButton from "./components/ContactButton";
 import ContactModal from "./components/ContactModal";
 
 // Home Sections
-import Hero from "./home/Hero";
+import Hero from "./home/hero.jsx";
 import Welcome from "./home/Welcome";
 import Features from "./home/Features";
 import DashboardShowcase from "./home/Dashboard";
