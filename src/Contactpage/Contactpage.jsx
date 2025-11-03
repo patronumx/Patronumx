@@ -54,7 +54,7 @@ export default function Contact() {
             We’ll design the shortest path there.
           </h1>
           <p className="mt-3 text-slate-300 max-w-2xl">
-            Whether it’s esports broadcast systems, headless commerce, apps, or AI copilots—our team
+            Whether it's headless commerce, apps, or AI copilots—our team
             ships fast with clean hand-offs, SLOs, and observability from day one.
           </p>
 

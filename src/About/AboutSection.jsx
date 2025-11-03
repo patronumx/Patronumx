@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Cpu, Globe, Smartphone, Bot, Wallet } from "lucide-react";
+import { Sparkles, Globe, Smartphone, Bot, Wallet } from "lucide-react";
 
 export default function AboutSection() {
   return (
@@ -20,7 +20,6 @@ export default function AboutSection() {
           className="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight"
         >
           One stack for{" "}
-          <span className="text-amber-400">Esports</span>,{" "}
           <span className="text-blue-400">Web</span>,{" "}
           <span className="text-green-400">Apps</span>,{" "}
           <span className="text-yellow-400">AI</span> &{" "}
@@ -33,10 +32,10 @@ export default function AboutSection() {
           transition={{ delay: 0.4, duration: 0.7 }}
           className="text-gray-300 mt-6 text-lg max-w-3xl mx-auto leading-relaxed"
         >
-          We architect and ship production systems for esports broadcasts, web &
-          mobile products, AI copilots, and verifiable commerce—built for
-          protection, precision, and performance. Every hand-off stays clean
-          with docs, SLOs, and observability from day one.
+          We architect and ship production systems for web & mobile products,
+          AI copilots, and verifiable commerce—built for protection, precision,
+          and performance. Every hand-off stays clean with docs, SLOs, and
+          observability from day one.
         </motion.p>
       </div>
 
@@ -48,7 +47,6 @@ export default function AboutSection() {
         className="flex flex-wrap justify-center gap-4 mb-16"
       >
         {[
-          { label: "Esports", icon: <Cpu size={16} /> },
           { label: "Web Development", icon: <Globe size={16} /> },
           { label: "App Development", icon: <Smartphone size={16} /> },
           { label: "AI & Data", icon: <Bot size={16} /> },
@@ -83,9 +81,9 @@ export default function AboutSection() {
 
         <p className="text-gray-300 leading-relaxed text-base">
           Modern products live at the intersection of <b>speed</b> and{" "}
-          <b>trust</b>. You can’t afford to be slow, and you can’t afford to be
+          <b>trust</b>. You can't afford to be slow, and you can't afford to be
           sloppy. PatronumX brings battle-tested engineering patterns from
-          esports, fintech, and consumer apps into one dependable stack—so your
+          fintech and consumer apps into one dependable stack—so your
           team can focus on users, not plumbing.
         </p>
 

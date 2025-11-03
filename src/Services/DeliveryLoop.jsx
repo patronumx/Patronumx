@@ -96,7 +96,7 @@ export default function DeliveryLoop() {
               Ready to start your project?
             </h3>
             <p className="text-gray-300 max-w-lg">
-              Whether it’s esports, AI, or blockchain — we’ll guide you from scope to launch.
+              Whether it's web apps, AI, or blockchain — we'll guide you from scope to launch.
             </p>
           </div>
 

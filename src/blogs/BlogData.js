@@ -74,28 +74,6 @@ export const BLOGS = [
     ]
   },
   {
-    id: "esports-broadcast",
-    slug: "esports-broadcast-tooling-2025",
-    category: "Esports",
-    title: "Broadcast Tooling 2025: Latency, Observability, and Failover",
-    excerpt:
-      "A practical guide to building or buying esports broadcast tooling that scales with your event ops.",
-    image:
-      "https://images.unsplash.com/photo-1556139943-4bdca53adf1e?auto=format&fit=crop&w=1200&q=80",
-    read: "6 min",
-    date: "Jul 2025",
-    tags: ["Esports", "DevOps"],
-    content: [
-      { type: "p", text: "Broadcast quality depends on resilience and observability across your stack." },
-      { type: "h3", text: "Core Ideas" },
-      { type: "ul", items: [
-        "Low-latency ingest & distribution",
-        "Health checks & failover",
-        "Operator-first dashboards"
-      ]}
-    ]
-  },
-  {
     id: "blockchain-loyalty",
     slug: "blockchain-loyalty-food-brands",
     category: "Blockchain",

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Cpu,
-  Shield,
   Globe,
   LayoutDashboard,
   Smartphone,
@@ -15,7 +13,6 @@ import {
 
 const CATEGORIES = [
   "All",
-  "Esports",
   "Web Development",
   "App Development",
   "AI & Data",
@@ -23,34 +20,6 @@ const CATEGORIES = [
 ];
 
 const SERVICES = [
-  {
-    id: 1,
-    icon: <Cpu size={22} />,
-    title: "Broadcast Graphics & Overlays",
-    desc: "HTML5/OBS/NDI overlays driven by real-time data—lower thirds, score bugs, match timers, leaderboards, sponsor stingers.",
-    points: [
-      "Realtime sockets + control panel",
-      "Data ingest from tournament APIs",
-      "Operator UI with safety guards",
-      "Latency-safe scene switching",
-    ],
-    tags: ["OBS", "HTML5", "NDI", "Node.js"],
-    category: "Esports",
-  },
-  {
-    id: 2,
-    icon: <Shield size={22} />,
-    title: "Tournament Ops Toolkit",
-    desc: "Match lobbies, brackets, team registration, anti-smurf/anti-cheat signals & referee dashboards for fair play at scale.",
-    points: [
-      "Ref tools (timeouts, rulings)",
-      "Bracket, seeds, check-ins",
-      "Player identity sanity checks",
-      "Audit logs and incident reports",
-    ],
-    tags: ["Ops", "Admin", "Anti-cheat"],
-    category: "Esports",
-  },
   {
     id: 3,
     icon: <Globe size={22} />,
@@ -173,10 +142,10 @@ export default function TechStack() {
     <section className="py-20 px-6 text-white bg-transparent relative">
       <div className="max-w-7xl mx-auto text-center mb-14">
         <h1 className="font-extrabold text-4xl sm:text-5xl mb-3">
-          One Stack for Esports, Web, Apps, AI & Blockchain
+          One Stack for Web, Apps, AI & Blockchain
         </h1>
         <p className="text-slate-300 max-w-3xl mx-auto">
-          From live broadcasts to headless commerce, AI copilots, and verifiable receipts — we ship fast,
+          From headless commerce to AI copilots and verifiable receipts — we ship fast,
           measure impact, and keep hand-offs clean with docs, SLOs, and observability.
         </p>
       </div>

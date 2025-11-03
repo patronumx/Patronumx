@@ -16,7 +16,6 @@ import {
 
 const wins = [
   "Sub-2s menu loads for high-traffic brands via code-split routes + image CDN.",
-  "Real-time esports overlays with <150ms latency, serving thousands of viewers.",
   "AI copilots for ops/support that reduce manual response time by 60%—brand safe.",
   "Verifiable receipts & loyalty with on-chain proofs that cut dispute friction.",
 ];
@@ -168,10 +167,10 @@ export default function SelectedWinsAndStack() {
         className="max-w-6xl mx-auto mt-6 rounded-2xl border border-white/10 bg-white/[0.045] backdrop-blur-md p-6 sm:p-8 text-slate-200 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
       >
         <p className="text-lg leading-relaxed">
-          “PatronumX is the rare partner that can ship fast and still hand over clean systems.
-          They made our broadcast tools feel inevitable.”
+          "PatronumX is the rare partner that can ship fast and still hand over clean systems.
+          They built exactly what we needed, with clarity and precision."
         </p>
-        <p className="mt-2 text-slate-400">— Client, Head of Production</p>
+        <p className="mt-2 text-slate-400">— Client, Head of Technology</p>
       </motion.div>
 
       {/* ------------------------ How we work ------------------------ */}
@@ -275,18 +274,30 @@ export default function SelectedWinsAndStack() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.35, delay: 0.1 }}
-        className="max-w-6xl mx-auto mt-6 rounded-2xl border border-white/10 bg-gradient-to-r from-[#1a0f0f]/70 via-[#121212]/70 to-[#0b0b0b]/70 backdrop-blur-md p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+        className="relative max-w-6xl mx-auto mt-6 rounded-2xl border border-purple-500/20 bg-gradient-to-br from-slate-900/80 via-purple-900/20 to-slate-900/80 backdrop-blur-md p-6 sm:p-8 lg:p-10 shadow-[0_20px_50px_rgba(139,92,246,0.15)] overflow-hidden"
       >
-        <div>
-          <h4 className="text-2xl font-extrabold">Let’s build something durable.</h4>
-          <p className="text-slate-300 mt-1">
-            Launching a new product, modernizing a stack, or taking esports real-time to real-world impact—we’re here to help.
-          </p>
-        </div>
+        {/* Decorative gradient orbs */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-10" />
 
-        <div className="flex items-center gap-3">
-          <PrimaryCTA href="mailto:thepatronumx@gmail.com">Contact us</PrimaryCTA>
-          <EmailPill href="mailto:thepatronumx@gmail.com">thepatronumx@gmail.com</EmailPill>
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+          <div className="text-center lg:text-left flex-1">
+            <h4 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-2">
+              Let's build something{" "}
+              <span className="text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text">
+                durable
+              </span>
+              .
+            </h4>
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+              Launching a new product, modernizing a stack, or building real-world impact—we're here to help.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full lg:w-auto">
+            <PrimaryCTA href="mailto:thepatronumx@gmail.com">Contact us</PrimaryCTA>
+            <EmailPill href="mailto:thepatronumx@gmail.com">thepatronumx@gmail.com</EmailPill>
+          </div>
         </div>
       </motion.div>
     </section>
@@ -377,23 +388,37 @@ function PrimaryCTA({ href, children }) {
   return (
     <a
       href={href}
-      className="group relative inline-flex items-center gap-2 rounded-2xl px-5 sm:px-6 py-2.5
-                 font-semibold text-slate-950 transition-all
-                 bg-gradient-to-r from-amber-300 via-amber-400 to-red-400
-                 shadow-[0_10px_28px_rgba(251,191,36,0.28)]
-                 hover:shadow-[0_16px_40px_rgba(251,191,36,0.38)]
-                 hover:-translate-y-0.5"
+      className="group relative inline-flex items-center justify-center gap-2 rounded-xl px-6 sm:px-8 py-3.5 sm:py-4
+                 font-bold text-white transition-all duration-300 overflow-hidden
+                 bg-gradient-to-r from-purple-600 via-purple-500 to-blue-500
+                 shadow-lg shadow-purple-500/50
+                 hover:shadow-xl hover:shadow-purple-500/60
+                 hover:scale-105
+                 active:scale-95"
     >
-      <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
-                       bg-[radial-gradient(80%_120%_at_50%_0%,rgba(255,255,255,0.35),rgba(255,255,255,0))]
-                       transition-opacity" />
-      <span className="relative z-10 flex items-center gap-2">
-        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current opacity-90">
+      {/* Shine effect */}
+      <span className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100
+                       bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.3),transparent_50%)]
+                       transition-opacity duration-300" />
+
+      {/* Animated gradient border */}
+      <span className="absolute inset-0 rounded-xl opacity-75 group-hover:opacity-100
+                       bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400
+                       blur-sm transition-opacity duration-300"
+            style={{ zIndex: -1 }} />
+
+      <span className="relative z-10 flex items-center gap-2 text-sm sm:text-base">
+        <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-current group-hover:scale-110 transition-transform duration-300">
           <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm-.4 3.25l-6.98 4.66a2 2 0 01-2.24 0L3.4 7.25A1 1 0 014 6h16a1 1 0 01-.4 1.25z" />
         </svg>
         <span>{children}</span>
+        <svg
+          viewBox="0 0 24 24"
+          className="w-4 h-4 sm:w-5 sm:h-5 fill-current group-hover:translate-x-1 transition-transform duration-300"
+        >
+          <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+        </svg>
       </span>
-      <span className="absolute inset-0 rounded-2xl ring-1 ring-black/10" />
     </a>
   );
 }
@@ -402,14 +427,20 @@ function EmailPill({ href, children }) {
   return (
     <a
       href={href}
-      className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5
-                 border border-white/10 bg-white/[0.06] text-slate-200
-                 hover:text-white hover:border-amber-400/40 hover:bg-white/[0.1]
-                 transition group"
+      className="group inline-flex items-center gap-2 sm:gap-3 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5
+                 border border-white/10 bg-white/[0.05] backdrop-blur-sm text-slate-200
+                 hover:text-white hover:border-purple-400/40 hover:bg-white/[0.1]
+                 transition-all duration-300
+                 shadow-sm hover:shadow-lg hover:shadow-purple-500/20"
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/90 shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
-      <span className="tracking-tight">{children}</span>
-      <svg viewBox="0 0 24 24" className="w-4 h-4 opacity-70 group-hover:opacity-100 transition">
+      <span className="w-2 h-2 rounded-full bg-emerald-400/90 shadow-[0_0_10px_rgba(16,185,129,0.8)]
+                       group-hover:shadow-[0_0_15px_rgba(16,185,129,1)] transition-shadow" />
+      <span className="tracking-tight text-sm sm:text-base font-medium hidden sm:inline">{children}</span>
+      <span className="tracking-tight text-xs font-medium sm:hidden">Email</span>
+      <svg
+        viewBox="0 0 24 24"
+        className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300"
+      >
         <path fill="currentColor" d="M13 5l7 7-7 7v-4H4v-6h9V5z" />
       </svg>
     </a>

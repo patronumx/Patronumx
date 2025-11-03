@@ -53,12 +53,6 @@ const LinkIcon = () => (
 
 const featuresData = [
   {
-    icon: <MonitorIcon />,
-    title: "Broadcast & Overlays",
-    description: "Reactive HUDs, lower-thirds, score bugs, observer tools for high-FPS esports.",
-    buttonLink: "#",
-  },
-  {
     icon: <SettingsIcon />,
     title: "AI Analytics",
     description: "CV pipelines, player heatmaps, cheat detection signals, coach dashboards.",
@@ -111,50 +105,81 @@ const cardVariants = {
 
 const Features = () => {
   return (
-    <section id="features" className="relative py-20 sm:py-32 overflow-hidden bg-gradient-to-b from-transparent to-slate-900/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Title */}
-        <motion.h2 
-          className="text-4xl sm:text-5xl font-extrabold text-white mb-16 text-center tracking-tight"
-          initial={{ y: -50, opacity: 0 }}
+    <section id="features" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ y: -30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          Transform Your Stack with{' '}
-          <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-            PatronumX
-          </span>
-        </motion.h2>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-400/20 backdrop-blur-sm mb-4">
+            <span className="text-sm font-medium text-purple-300">Our Capabilities</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
+            Transform Your Stack with{' '}
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-purple-600 text-transparent bg-clip-text">
+              PatronumX
+            </span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+            Comprehensive solutions to power your digital transformation
+          </p>
+        </motion.div>
 
         {/* Feature Grid */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
         >
           {featuresData.map((feature, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ 
-                scale: 1.03, 
-                boxShadow: '0 0 30px rgba(168,85,247,0.4)', 
-                transition: { type: 'spring', stiffness: 300 }
+              whileHover={{
+                y: -8,
+                transition: { type: 'spring', stiffness: 300, damping: 20 }
               }}
-              className="relative p-[1px] rounded-2xl bg-gradient-to-br from-purple-500/30 via-blue-500/30 to-purple-500/30 overflow-hidden group"
+              className="group relative"
             >
-              {/* Inner card content */}
-              <div className="bg-slate-900/80 backdrop-blur-md rounded-[15px] p-6 h-full flex flex-col items-start text-left">
-                <div className="flex items-center justify-center size-12 rounded-full bg-slate-800/50 border border-slate-700 mb-4 transition-colors group-hover:bg-slate-700/70">
+              {/* Glow effect on hover */}
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/50 via-blue-500/50 to-purple-500/50 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+
+              {/* Card */}
+              <div className="relative h-full bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 p-6 sm:p-8 flex flex-col group-hover:border-purple-400/30 transition-all duration-300">
+                {/* Icon */}
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-400/20 mb-5 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-slate-400 text-base flex-grow">{feature.description}</p>
-                {/* Learn More button removed */}
+
+                {/* Content */}
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+
+                <p className="text-slate-400 text-sm sm:text-base leading-relaxed flex-grow group-hover:text-slate-300 transition-colors duration-300">
+                  {feature.description}
+                </p>
+
+                {/* Hover arrow indicator */}
+                <div className="mt-4 flex items-center gap-2 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-sm font-medium">Learn more</span>
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </motion.div>
           ))}

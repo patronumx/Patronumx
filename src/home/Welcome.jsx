@@ -27,7 +27,7 @@ const LogoIcon = () => (
 
 
 const tags = [
-    "Broadcast & Overlays", "Realtime & WebRTC", "Computer Vision & AI",
+    "Realtime & WebRTC", "Computer Vision & AI",
     "APIs & Platform", "Headless Commerce", "Security & SRE"
 ];
 
@@ -82,7 +82,7 @@ const Welcome = () => {
                 <div className="my-6 h-[1px] w-full bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
 
                 <p className="text-base md:text-lg text-slate-300 leading-relaxed">
-                  As a leading software house in Pakistan, our developers have designed <strong className="font-semibold text-purple-300">100+ websites</strong> and modern applications for clients worldwide. We also specialize in <strong className="font-semibold text-purple-300">Esports broadcast solutions</strong>—reactive overlays, score bugs, observer tools and realtime data pipelines—alongside secure APIs, cloud infrastructure, and commerce integrations.
+                  As a leading software house in Pakistan, our developers have designed <strong className="font-semibold text-purple-300">100+ websites</strong> and modern applications for clients worldwide. We specialize in building secure APIs, cloud infrastructure, realtime data pipelines, and commerce integrations that power modern digital businesses.
                 </p>
 
                 {/* Tags/Chips */}
