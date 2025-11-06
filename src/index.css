@@ -37,6 +37,10 @@ body {
   background-repeat: no-repeat;
   color: #fff;
 
+  /* GPU acceleration */
+  will-change: background;
+  transform: translateZ(0);
+
   /* Better text rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -95,8 +99,8 @@ body {
   border-radius: 4px;
 }
 
-/* Smooth transitions for theme changes */
-* {
+/* Smooth transitions for buttons, links, and interactive elements */
+button, a, [role="button"], input, select, textarea {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;

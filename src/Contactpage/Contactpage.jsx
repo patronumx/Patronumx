@@ -23,8 +23,8 @@ export default function Contact() {
   const [copied, setCopied] = useState(false);
 
   const EMAIL = "thepatronumx@gmail.com";
-  const PHONE = "+92 3xx xxxxxxx";
-  const WHATSAPP = "+92 3xx xxxxxxx";
+  const PHONE = "+92 303 5921629";
+  const WHATSAPP = "+92 303 5921629";
 
   const copyEmail = async () => {
     try {
@@ -165,7 +165,7 @@ export default function Contact() {
 
           <Panel title="Locations" icon={<MapPin size={16} />}>
             <ul className="text-slate-300 text-sm space-y-1.5">
-              <li>Karachi · Lahore · Remote</li>
+              <li>Islamabad · Karachi · Lahore · Remote</li>
               <li>Client delivery across US/EU/APAC</li>
               <li className="text-slate-400">On-site available for events</li>
             </ul>
@@ -215,7 +215,7 @@ export default function Contact() {
               <Social href="#" icon={<Linkedin size={16} />} label="LinkedIn" />
               <Social href="#" icon={<Twitter size={16} />} label="X / Twitter" />
               <Social href="#" icon={<Instagram size={16} />} label="Instagram" />
-              <Social href="#" icon={<Github size={16} />} label="GitHub" />
+              <Social href="#" icon={<Mail size={16} />} label="Mail" />
             </div>
 
             <div className="h-px bg-white/10 my-5" />

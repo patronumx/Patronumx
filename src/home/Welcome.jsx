@@ -1,30 +1,7 @@
 // src/components/About.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-
-// The Logo Icon component (no changes needed)
-const LogoIcon = () => (
-    <motion.svg 
-      width="120" 
-      height="120" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg"
-      className="drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
-      whileHover={{ 
-        scale: 1.05, 
-        filter: 'drop-shadow(0 0 15px rgba(192, 132, 252, 0.7))',
-        transition: { duration: 0.3 }
-      }}
-    >
-      <path d="M12 2L2 7V17C2 21 12 23 12 23C12 23 22 21 22 17V7L12 2Z" 
-        stroke="rgba(168, 85, 247, 0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
-        stroke="rgba(192, 132, 252, 0.9)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 23V15" stroke="rgba(168, 85, 247, 0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </motion.svg>
-);
-
+import patronumLogo from '../assets/Plogo.png'; // Update path if needed
 
 const tags = [
     "Realtime & WebRTC", "Computer Vision & AI",
@@ -58,14 +35,28 @@ const Welcome = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
               
               {/* Left Column: Logo */}
-              <div className="flex flex-col items-center text-center lg:col-span-1">
-                <LogoIcon />
-                <h2 className="mt-4 text-3xl font-bold tracking-wider text-white">
-                  PATRONUM
-                  <span className="bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text">
-                    X
-                  </span>
-                </h2>
+              <div className="flex flex-col items-center justify-center text-center lg:col-span-1">
+                <motion.div
+                  className="relative group"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Glow effect behind logo */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 via-blue-500/30 to-cyan-500/30 blur-2xl group-hover:blur-3xl transition-all duration-300 opacity-60 group-hover:opacity-100" />
+
+                  {/* Logo container */}
+                  <div className="relative bg-gradient-to-br from-purple-500/10 to-cyan-500/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 group-hover:border-purple-400/30 transition-all duration-300">
+                    <img
+                      src={patronumLogo}
+                      alt="PatronumX Logo"
+                      className="w-32 h-32 object-contain drop-shadow-2xl"
+                    />
+                  </div>
+
+                  {/* Decorative corner accents */}
+                  <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-purple-400/50 rounded-tl-lg" />
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-cyan-400/50 rounded-br-lg" />
+                </motion.div>
               </div>
 
               {/* Right Column: Text Content */}

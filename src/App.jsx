@@ -8,6 +8,7 @@ import Particles from "./components/Particles";
 import Navbar from "./components/Navbar";
 import ContactButton from "./components/ContactButton";
 import ContactModal from "./components/ContactModal";
+import Footer from "./components/Footer";
 
 // Lazy load Home Sections (Below the fold)
 const Hero = lazy(() => import("./home/hero.jsx"));
@@ -121,6 +122,9 @@ export default function App() {
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
       />
+
+      {/* ===== Footer ===== */}
+      <Footer />
     </>
   );
 }

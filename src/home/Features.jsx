@@ -53,9 +53,9 @@ const LinkIcon = () => (
 
 const featuresData = [
   {
-    icon: <SettingsIcon />,
-    title: "AI Analytics",
-    description: "CV pipelines, player heatmaps, cheat detection signals, coach dashboards.",
+    icon: <ShoppingBagIcon />,
+    title: "Merch & E-com",
+    description: "Headless storefronts, payments, fulfillment, CRM/ERP integrations.",
     buttonLink: "#",
   },
   {
@@ -70,18 +70,8 @@ const featuresData = [
     description: "AuthN/AuthZ, rate-limiting, anti-tamper telemetry, secrets & vaults.",
     buttonLink: "#",
   },
-  {
-    icon: <ShoppingBagIcon />,
-    title: "Merch & E-com",
-    description: "Headless storefronts, payments, fulfillment, CRM/ERP integrations.",
-    buttonLink: "#",
-  },
-  {
-    icon: <LinkIcon />,
-    title: "Game Dev Tooling",
-    description: "Live-ops dashboards, build pipelines, crash/telemetry insights.",
-    buttonLink: "#",
-  },
+  
+  
 ];
 
 // Animation variants for Framer Motion

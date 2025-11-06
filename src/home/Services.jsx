@@ -20,7 +20,7 @@ const servicesData = [
   { id: "web", icon: <MonitorCog size={44} color="#fff" />, color: "#7c8cff", title: "Web Updates & Management",
     description: "Fast content edits, menu/banners, uptime and performance care for a crisp, always-on presence.",
     includes: ["Weekly content / banner updates","Menu & pricing changes","Uptime monitoring & alerts","Image compression & performance care","Minor landing page tweaks"] },
-  { id: "photoshoot", icon: <Camera size={44} color="#fff" />, color: "#5eead4", title: "Food Photoshoot",
+  { id: "photoshoot", icon: <Camera size={44} color="#fff" />, color: "#5eead4", title: "Tasty Snapshots",
     description: "Styled visuals for campaigns, menus and delivery apps—consistent, appetizing and on-brand.",
     includes: ["Shot planning & moodboard","Lighting, styling & capture","Color-corrected hero shots","Web & social exports","Shoot-day coordination"] },
   { id: "analytics", icon: <BarChart3 size={44} color="#fff" />, color: "#38bdf8", title: "Analytics Report",
