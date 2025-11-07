@@ -10,7 +10,7 @@ const generateStars = (numStars) => {
             id: i,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            size: `${Math.random() * 2 + 1}px`, // 1px to 3px
+            size: `${Math.random() * 1.5 + 1}px`, // 1px to 2.5px
             delay: `${Math.random() * 2}s`,
             duration: `${Math.random() * 1.5 + 1.5}s`, // 1.5s to 3s
         });
@@ -19,10 +19,10 @@ const generateStars = (numStars) => {
 };
 
 const CtaSection = () => {
-    const stars = useMemo(() => generateStars(80), []); // Fewer stars for this section
+    const stars = useMemo(() => generateStars(60), []); // Fewer stars
 
     return (
-        <section className="relative overflow-hidden py-24 sm:py-32 bg-transparent text-white text-center">
+        <section className="relative overflow-hidden py-20 sm:py-24 bg-transparent text-white text-center">
             
             {/* Embedded CSS for animations and custom gradients */}
             <style>{`
@@ -38,12 +38,12 @@ const CtaSection = () => {
                 }
                 .cta-button-gradient {
                     background: linear-gradient(to right, #e74c3c, #c0392b); /* Red gradient */
-                    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4); /* Soft red shadow */
+                    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.35); /* Softer red shadow */
                     transition: all 0.3s ease-in-out;
                 }
                 .cta-button-gradient:hover {
                     background: linear-gradient(to right, #c0392b, #e74c3c); /* Reverse gradient on hover */
-                    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6); /* Stronger shadow on hover */
+                    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5); /* Stronger shadow on hover */
                     transform: translateY(-2px);
                 }
             `}</style>
@@ -66,28 +66,28 @@ const CtaSection = () => {
                 ))}
             </div>
 
-            {/* Purple gradient blobs for visual flair */}
-            <div className="absolute -left-20 top-1/4 w-64 h-64 bg-purple-600 opacity-20 blur-3xl rounded-full z-0 animate-pulse-slow md:w-96 md:h-96"></div>
-            <div className="absolute -right-20 bottom-1/4 w-64 h-64 bg-purple-600 opacity-20 blur-3xl rounded-full z-0 animate-pulse-slow md:w-96 md:h-96"></div>
+            {/* Purple gradient blobs for visual flair - REDUCED SIZE */}
+            <div className="absolute -left-16 top-1/4 w-52 h-52 bg-purple-600 opacity-20 blur-3xl rounded-full z-0 animate-pulse-slow md:w-80 md:h-80"></div>
+            <div className="absolute -right-16 bottom-1/4 w-52 h-52 bg-purple-600 opacity-20 blur-3xl rounded-full z-0 animate-pulse-slow md:w-80 md:h-80"></div>
             
             {/* Content */}
             <motion.div
-                className="max-w-4xl mx-auto px-6 relative z-10"
-                initial={{ opacity: 0, y: 50 }}
+                className="max-w-3xl mx-auto px-4 relative z-10" // REDUCED max-width and padding
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
             >
-                <p className="font-semibold text-yellow-500 mb-4 text-lg">Let's Try!</p>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
+                <p className="font-semibold text-yellow-500 mb-3 text-base">Let's Try!</p> {/* REDUCED margin and text size */}
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-5"> {/* REDUCED text size and margin */}
                     Grow Your Restaurant Sale
                 </h2>
-                <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-10">
+                <p className="text-sm md:text-base text-gray-300 max-w-xl mx-auto mb-8"> {/* REDUCED text size, max-width, and margin */}
                     We are helping restaurants across Pakistan stay profitable. Let us help you increase business immediately.
                 </p>
                 <a
                     href="#contact" // Link to a contact section or form
-                    className="inline-block px-10 py-4 rounded-full text-lg font-semibold text-white cta-button-gradient"
+                    className="inline-block px-8 py-3 rounded-full text-base font-semibold text-white cta-button-gradient" // REDUCED padding and text size
                 >
                     Contact with Us
                 </a>
