@@ -8,6 +8,7 @@ import {
   FileCheck,
   ChevronDown,
 } from "lucide-react";
+import ContactModal from "../components/ContactModal";
 
 const STEPS = [
   { id: 1, icon: <ClipboardList size={20} />, title: "Scope & Goals", desc: "Define outcomes, metrics, and risks." },
@@ -25,6 +26,7 @@ const FAQS = [
 
 export default function DeliveryLoop() {
   const [open, setOpen] = useState(null);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <section className="py-20 px-6 text-white bg-transparent relative">
@@ -100,10 +102,16 @@ export default function DeliveryLoop() {
             </p>
           </div>
 
-          <button className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:brightness-110 transition-all shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+          <button
+            className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:brightness-110 transition-all shadow-[0_0_15px_rgba(239,68,68,0.5)]"
+            type="button"
+            onClick={() => setIsContactOpen(true)}
+          >
             Start a Project →
           </button>
         </motion.div>
+
+        <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       </div>
     </section>
   );

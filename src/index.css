@@ -1,4 +1,15 @@
+/* === Global font import: Montserrat Variable === */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Tailwind via Vite plugin (no tailwind.config.js needed) */
 @import "tailwindcss";
+
+/* Font-face with font-display swap for immediate text rendering */
+@supports (font-variation-settings: normal) {
+  html {
+    font-display: swap;
+  }
+}
 
 /* Fill the viewport */
 html, body, #root {
@@ -7,46 +18,41 @@ html, body, #root {
   padding: 0;
 }
 
-/* Smooth scrolling */
+/* Make Montserrat the global default (everything inherits) */
 html {
   scroll-behavior: smooth;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu,
+               "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
-/* Galaxy Purple Gradient background with enhanced deep space effect */
+/* Ensure all elements inherit the global font */
+body, * { font-family: inherit; }
+
+/* Enhanced dark-purple background (lightweight gradients) */
 body {
-  /* Fallback to a single dark color */
   background-color: #0a0a1a;
-
-  /* Enhanced background with better gradient */
   background-image:
-    /* Deep space vignette effect */
-    radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.85) 100%),
-    /* Base galaxy gradient with richer colors */
-    linear-gradient(
-      135deg,
-      #0a0a1a 0%,
-      #1a0f2e 25%,
-      #2d1b4e 50%,
-      #1a1635 75%,
-      #0d0c24 100%
-    );
-
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    radial-gradient(120% 100% at 50% 40%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%),
+    radial-gradient(50% 50% at 85% 80%, rgba(56,189,248,0.10) 0%, rgba(0,0,0,0) 60%),
+    radial-gradient(55% 55% at 15% 15%, rgba(244,114,182,0.18) 0%, rgba(0,0,0,0) 65%),
+    radial-gradient(80% 80% at 60% 35%, rgba(139,92,246,0.22) 0%, rgba(0,0,0,0) 70%),
+    linear-gradient(180deg, #110b22 0%, #0b0a19 40%, #080716 100%);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 100% 100%,120% 120%,140% 140%,160% 160%,100% 100%;
+  background-position: center,right 10% bottom 5%,left 10% top 12%,60% 35%,center;
+  background-attachment: fixed,fixed,fixed,fixed,fixed;
   color: #fff;
 
-  /* GPU acceleration */
-  will-change: background;
-  transform: translateZ(0);
-
-  /* Better text rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Full-screen particle layer behind everything */
+/* Mobile perf guard */
+@media (max-width: 768px), (pointer: coarse) {
+  body { background-attachment: scroll,scroll,scroll,scroll,scroll; }
+}
+
+/* Particles layer */
 #bgParticles {
   position: fixed;
   inset: 0;
@@ -55,84 +61,47 @@ body {
   opacity: 0.6;
 }
 
-/* App content above particles */
-.app {
-  position: relative;
-  z-index: 1;
-  min-height: 100%;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(10, 10, 26, 0.8);
-}
-
+/* Scrollbar */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: rgba(10, 10, 26, 0.8); }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #8b5cf6, #06b6d4);
   border-radius: 6px;
   border: 2px solid rgba(10, 10, 26, 0.8);
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #a78bfa, #22d3ee);
 }
 
-/* Selection color */
-::selection {
-  background-color: rgba(139, 92, 246, 0.3);
-  color: #fff;
-}
+/* Selection + focus */
+::selection { background-color: rgba(139, 92, 246, 0.3); color: #fff; }
+::-moz-selection { background-color: rgba(139, 92, 246, 0.3); color: #fff; }
 
-::-moz-selection {
-  background-color: rgba(139, 92, 246, 0.3);
-  color: #fff;
-}
-
-/* Focus visible styles for accessibility */
 *:focus-visible {
   outline: 2px solid #8b5cf6;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Smooth transitions for buttons, links, and interactive elements */
+/* Smooth transitions */
 button, a, [role="button"], input, select, textarea {
-  transition-property: background-color, border-color, color, fill, stroke;
+  transition-property: background-color, border-color, color, fill, stroke, transform, box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-/* Custom heading styles */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+/* Performance optimizations */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-h5 {
-  font-size: 0.875rem;
-  margin-bottom: 0.25rem;
-}
-
-h6 {
-  font-size: 0.75rem;
-  margin-bottom: 0.25rem;
+/* Reduce repaints for animations */
+@media (prefers-reduced-motion: no-preference) {
+  .svc-content {
+    will-change: auto;
+  }
+  .svc-content:hover {
+    will-change: transform;
+  }
 }

@@ -52,79 +52,92 @@ export default function App() {
 
   return (
     <>
-      {/* ===== Background Particles ===== */}
+      {/* ===== Global Particle Background (fixed behind everything) ===== */}
       <div
         id="bgParticles"
-        className="fixed inset-0 z-0 pointer-events-none w-screen h-screen"
+        className="fixed inset-0 z-0 pointer-events-none"
+        style={{ willChange: "auto" }}
       >
         <Particles
           particleColors={["#ffffff"]}
-          particleCount={400}
+          particleCount={250}
           particleSpread={10}
           speed={0.3}
-          particleBaseSize={100}
+          particleBaseSize={80}
           moveParticlesOnHover
           alphaParticles
           disableRotation={false}
         />
       </div>
 
-      {/* ===== Navbar ===== */}
-      <Navbar />
+      {/* ===== All App Content lives ABOVE particles ===== */}
+      <div className="relative z-10">
+        {/* ===== Navbar ===== */}
+        <Navbar />
 
-      {/* ===== Routes ===== */}
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          {/* Home Sections as Separate Routes */}
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Welcome />
-              <Features />
-              <DashboardShowcase />
-              <ConstellationBenefits />
-              <Tech />
-              <OurServices />
-              <CtaSection />
-            </>
-          } />
+        {/* ===== Routes ===== */}
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            {/* Home Sections as Separate Routes */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <Welcome />
+                  <Features />
+                  <DashboardShowcase />
+                  <ConstellationBenefits />
+                  <Tech />
+                  <OurServices />
+                  <CtaSection />
+                </>
+              }
+            />
 
-          {/* Blog Pages */}
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+            {/* Blog Pages */}
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
 
-          {/* Services */}
-          <Route path="/services" element={
-            <>
-              <TechStack />
-              <DeliveryLoop />
-            </>
-          } />
+            {/* Services */}
+            <Route
+              path="/services"
+              element={
+                <>
+                  <TechStack />
+                  <DeliveryLoop />
+                </>
+              }
+            />
 
-          {/* About */}
-          <Route path="/about" element={
-            <>
-              <AboutSection/>
-              <SelectedWinsAndStack/>
-            </>
-          } />
+            {/* About */}
+            <Route
+              path="/about"
+              element={
+                <>
+                  <AboutSection />
+                  <SelectedWinsAndStack />
+                </>
+              }
+            />
 
-          {/* Contact */}
-          <Route path="/contact" element={<Contact/>} />
-        </Routes>
-      </Suspense>
+            {/* Contact */}
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
 
-      {/* ===== Floating Contact Button ===== */}
-      <ContactButton onClick={() => setIsContactOpen(true)} />
+        {/* ===== Floating Contact Button ===== */}
+        <ContactButton onClick={() => setIsContactOpen(true)} />
 
-      {/* ===== Contact Modal ===== */}
-      <ContactModal
-        isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
-      />
+        {/* ===== Contact Modal ===== */}
+        <ContactModal
+          isOpen={isContactOpen}
+          onClose={() => setIsContactOpen(false)}
+        />
 
-      {/* ===== Footer ===== */}
-      <Footer />
+        {/* ===== Footer ===== */}
+        <Footer />
+      </div>
     </>
   );
 }

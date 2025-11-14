@@ -16,7 +16,7 @@ import {
   Copy,
   Check,
 } from "lucide-react";
-import ContactModal from "../components/ContactModal"; // <- adjust path if needed
+import ContactModal from "../components/ContactModal"; // ensure path is correct
 
 export default function Contact() {
   const [openModal, setOpenModal] = useState(false);
@@ -68,7 +68,8 @@ export default function Contact() {
                          hover:shadow-[0_16px_40px_rgba(251,191,36,0.38)]
                          hover:-translate-y-0.5"
             >
-              Start a conversation
+              {/* This is the main "Contact us" button, opens the ContactModal */}
+              Contact us
               <ArrowRight size={18} />
             </button>
 
@@ -270,10 +271,10 @@ export default function Contact() {
                    shadow-[0_12px_28px_rgba(251,191,36,0.35)] hover:-translate-y-0.5 transition"
       >
         <Sparkles size={18} />
-        Let’s Collaborate
+        Contact us
       </button>
 
-      {/* Modal */}
+      {/* Contact Modal */}
       <ContactModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}

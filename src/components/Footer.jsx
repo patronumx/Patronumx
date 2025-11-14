@@ -23,24 +23,7 @@ export default function Footer() {
       { name: "Technologies", path: "/#technologies" },
       { name: "Benefits", path: "/#benefits" },
     ],
-    company: [
-      { name: "About Us", path: "/about" },
-      { name: "Blog", path: "/blog" },
-      { name: "Contact", path: "/contact" },
-      { name: "Careers", path: "/#" },
-    ],
-    resources: [
-      { name: "Documentation", path: "/#" },
-      { name: "Help Center", path: "/#" },
-      { name: "Community", path: "/#" },
-      { name: "Developers", path: "/#" },
-    ],
-    legal: [
-      { name: "Privacy Policy", path: "/#" },
-      { name: "Terms of Service", path: "/#" },
-      { name: "Cookie Policy", path: "/#" },
-      { name: "Licenses", path: "/#" },
-    ],
+    // Company, Resources, Legal removed per instructions
   };
 
   const socialLinks = [
@@ -96,8 +79,30 @@ export default function Footer() {
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
               Guardians of the Next Generation. Bringing developers, agencies, tools, and opportunities together under one digital house.
             </p>
+          </div>
 
-            {/* Social Links */}
+          {/* Links and Socials: Product Links in One Row, Socials Below in One Row */}
+          <div className="lg:col-span-8 flex flex-col justify-end">
+            {/* Product Row */}
+            <div>
+              <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+                Product
+              </h3>
+              <ul className="flex flex-wrap gap-6 mb-6">
+                {footerLinks.product.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      to={link.path}
+                      className="text-sm text-slate-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1 group"
+                    >
+                      {link.name}
+                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Socials Row */}
             <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -113,89 +118,6 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          {/* Links Columns */}
-          <div className="grid grid-cols-2 gap-8 lg:col-span-8 sm:grid-cols-4">
-            {/* Product */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-                Product
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.product.map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      to={link.path}
-                      className="text-sm text-slate-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1 group"
-                    >
-                      {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Company */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-                Company
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      to={link.path}
-                      className="text-sm text-slate-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1 group"
-                    >
-                      {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-                Resources
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.resources.map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      to={link.path}
-                      className="text-sm text-slate-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1 group"
-                    >
-                      {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Legal */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-                Legal
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.legal.map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      to={link.path}
-                      className="text-sm text-slate-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1 group"
-                    >
-                      {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Section */}
@@ -205,8 +127,6 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-6">
-            
-
             <div className="h-4 w-px bg-slate-700" />
 
             <p className="text-xs text-slate-500">

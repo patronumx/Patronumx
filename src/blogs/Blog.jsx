@@ -7,7 +7,7 @@ export default function Blog() {
   return (
     <section className="py-20 text-white bg-transparent relative">
       <div className="max-w-6xl mx-auto px-6">
-        <h1 className="text-center font-extrabold text-4xl sm:text-5xl mb-12">
+        <h1 className="text-center font-semibold text-3xl sm:text-5xl mb-12">
           Insights & Stories
         </h1>
 

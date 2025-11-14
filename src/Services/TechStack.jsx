@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe,
@@ -10,6 +10,7 @@ import {
   Wallet,
   CheckCircle2,
 } from "lucide-react";
+import ContactModal from "../components/ContactModal";
 
 const CATEGORIES = [
   "All",
@@ -21,8 +22,23 @@ const CATEGORIES = [
 
 const SERVICES = [
   {
+    id: 1,
+    icon: <Bot size={18} />,
+    title: "Agentic AI: Autonomous Workflows & Smart Systems",
+    desc: "AI agents designed to operate, decide, and execute tasks autonomously, built for operations, analytics, customer support, content workflows, and internal tooling. End-to-end pipelines that combine reasoning, automation, and real-time system actions.",
+    points: [
+      "Multi-agent systems with memory & context",
+      "Tool-use & API-action capabilities",
+      "Automated task orchestration",
+      "Real-time decision-making & analytics",
+      "Human-handoff & safety guardrails",
+    ],
+    tags: ["Agentic AI", "Automations", "API Tools", "Workflows"],
+    category: "AI & Data",
+  },
+  {
     id: 3,
-    icon: <Globe size={22} />,
+    icon: <Globe size={18} />, // reduced size
     title: "Headless Commerce & CMS",
     desc: "Lightning fast storefronts with headless CMS—split routes, edge caching, and conversion-first UX for food & gaming brands.",
     points: [
@@ -36,7 +52,7 @@ const SERVICES = [
   },
   {
     id: 4,
-    icon: <LayoutDashboard size={22} />,
+    icon: <LayoutDashboard size={18} />,
     title: "Admin Panels & Dashboards",
     desc: "Operator-first admin apps with access control, audit trails, exports, and realtime metrics to run your business with confidence.",
     points: [
@@ -50,7 +66,7 @@ const SERVICES = [
   },
   {
     id: 5,
-    icon: <Smartphone size={22} />,
+    icon: <Smartphone size={18} />,
     title: "Consumer Apps",
     desc: "Personalized mobile apps for ordering, loyalty & community—deep links, push campaigns, and wallet checkout.",
     points: [
@@ -64,7 +80,7 @@ const SERVICES = [
   },
   {
     id: 6,
-    icon: <Settings2 size={22} />,
+    icon: <Settings2 size={18} />,
     title: "Staff & Ops Apps",
     desc: "Kitchen displays, runner tablets, and courier apps—built for low-latency communication and rugged environments.",
     points: [
@@ -78,7 +94,7 @@ const SERVICES = [
   },
   {
     id: 7,
-    icon: <Bot size={22} />,
+    icon: <Bot size={18} />,
     title: "AI CX: Chat, Menus & Support",
     desc: "LLM chat tuned to your brand—menu Q&A, order assistance, post-order support with guardrails and human handoff.",
     points: [
@@ -92,7 +108,7 @@ const SERVICES = [
   },
   {
     id: 8,
-    icon: <BarChart3 size={22} />,
+    icon: <BarChart3 size={18} />,
     title: "Forecasting & Creative at Scale",
     desc: "Demand forecasting, inventory planning, and ad creative generation with measurable uplift and privacy-first pipelines.",
     points: [
@@ -106,7 +122,7 @@ const SERVICES = [
   },
   {
     id: 9,
-    icon: <Wallet size={22} />,
+    icon: <Wallet size={18} />,
     title: "Wallet Integrations & Gating",
     desc: "Token-gated offers and community perks; seamless wallet onboarding; off-chain + on-chain event tracking.",
     points: [
@@ -120,7 +136,7 @@ const SERVICES = [
   },
   {
     id: 10,
-    icon: <CheckCircle2 size={22} />,
+    icon: <CheckCircle2 size={18} />,
     title: "Proof & Receipts",
     desc: "Verifiable on-chain receipts for limited drops, tournament rewards or donations—without burdening your users.",
     points: [
@@ -136,12 +152,31 @@ const SERVICES = [
 
 export default function TechStack() {
   const [active, setActive] = useState("All");
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
   const filtered = active === "All" ? SERVICES : SERVICES.filter((s) => s.category === active);
 
+  // Prefill could be extended for richer data
+  const handleGetQuote = useCallback((svc) => {
+    setSelectedService(svc);
+    setIsContactOpen(true);
+  }, []);
+
+  // Submits the contact modal (logs data + closes)
+  const handleContactSubmit = useCallback((data) => {
+    // Optionally add selectedService to the data for tracking/analytics
+    if (selectedService) {
+      data.serviceInterest = selectedService.title;
+    }
+    // Send to API or handle as needed (console for demo)
+    console.log("Contact form:", data);
+  }, [selectedService]);
+
   return (
-    <section className="py-20 px-6 text-white bg-transparent relative">
-      <div className="max-w-7xl mx-auto text-center mb-14">
-        <h1 className="font-extrabold text-4xl sm:text-5xl mb-3">
+    <section className="py-16 px-2 text-white bg-transparent relative">
+      <div className="max-w-7xl mx-auto text-center mb-10">
+        <h1 className="font-semibold text-2xl sm:text-3xl mb-2">
           One Stack for Web, Apps, AI & Blockchain
         </h1>
         <p className="text-slate-300 max-w-3xl mx-auto">
@@ -206,13 +241,23 @@ export default function TechStack() {
                 ))}
               </div>
 
-              <button className="px-4 py-2 border border-amber-400/60 rounded-md text-sm text-amber-300 hover:bg-amber-400/20 transition-all">
+              <button
+                className="px-4 py-2 border border-amber-400/60 rounded-md text-sm text-amber-300 hover:bg-amber-400/20 transition-all"
+                onClick={() => handleGetQuote(svc)}
+              >
                 Get a quote
               </button>
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
+
+      {/* Popup Contact Modal */}
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        onSubmit={handleContactSubmit}
+      />
     </section>
   );
 }
